@@ -1,26 +1,38 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import MainLayout from '../src/components/layout/MainLayout/MainLayout';
+
+import MainLayout from './components/layout/MainLayout/MainLayout';
+import Dashboard from '../src/components/views/Dashboard/Dashboard';
+import Login from '../src/components/views/Login/Login';
+import Tables from '../src/components/views/Tables/Tables';
+import Waiter from '../src/components/views/Waiter/Waiter';
+import Kitchen from '../src/components/views/Kitchen/Kitchen';
+import BookingId from '../src/components/views/BookingId/BookingId';
+import BookingNew from '../src/components/views/BookingNew/BookingNew';
+import EventsId from '../src/components/views/EventsId/EventsId';
+import EventsNew from '../src/components/views/EventsNew/EventsNew';
+import OrderId from '../src/components/views/OrderId/OrderId';
+import OrderNew from '../src/components/views/OrderNew/OrderNew';
 
 function App() {
   return (
-    <MainLayout>
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React Now! Right now!
-          </a>
-        </header>
-      </div>
-    </MainLayout>
+    <BrowserRouter>
+      <MainLayout>
+        <Switch>
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Dashboard} />
+          <Route exact path={process.env.PUBLIC_URL + '/login'} component={Login} />
+          <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables} />
+          <Route exact path={process.env.PUBLIC_URL + '/waiter'} component={Waiter} />
+          <Route exact path={process.env.PUBLIC_URL + '/kitchen'} component={Kitchen} />
+          <Route exact path={process.env.PUBLIC_URL + '/tables/booking/booked/:id'} component={BookingId} />
+          <Route exact path={process.env.PUBLIC_URL + '/tables/booking/new'} component={BookingNew} />
+          <Route exact path={process.env.PUBLIC_URL + '/tables/events/event/:id'} component={EventsId} />
+          <Route exact path={process.env.PUBLIC_URL + '/tables/events/new'} component={EventsNew} />
+          <Route exact path={process.env.PUBLIC_URL + '/waiter/orders/order/:id'} component={OrderId} />
+          <Route exact path={process.env.PUBLIC_URL + '/waiter/orders/new'} component={OrderNew} />
+        </Switch>
+      </MainLayout>
+    </BrowserRouter>
   );
 }
 
