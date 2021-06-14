@@ -2,4 +2,20 @@
 
 .component {
   padding: $base-size;
+  margin-top: $base-size;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+
+  div {
+    padding:5px ;
+  }
+
+  Button {
+    margin-top: 10px;
+  }
 }
